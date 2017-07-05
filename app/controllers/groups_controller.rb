@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-
+before_action :authenticate_user! , only: [:new, :edit, :destroy, :update, :create]
 
 def new
   @group = Group.new
