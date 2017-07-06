@@ -38,6 +38,14 @@ def update
   end
 end
 
+def destroy
+  @group = Group.find(params[:group_id])
+  @post = Post.find(params[:id])
+  @post.group = @group
+  @post.destroy
+  redirect_to account_posts_path, alert: "kuaikuai"
+end
+
 private
 def post_params
   params.require(:post).permit(:content)
